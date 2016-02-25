@@ -68,7 +68,13 @@ $.getJSON(url, 'q=' + data + "&format=json&diagnostics=true&env=http://datatable
         var node = JsonHuman.format(data.query.results.quote);
 		 output = document.getElementById("output");
 		 output.innerHTML = "";
-        output.appendChild(node);
+        //output.appendChild(node);
+        
+        for (var key in data.query.results.quote) {
+  
+     output.appendChild(key + " -> " + data.query.results.quote[key]);
+   
+}
 	
 
 }).fail(function (jqxhr, textStatus, error) {
