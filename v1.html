@@ -35,7 +35,7 @@ $.getJSON(url, 'q=' + data + "&format=json&diagnostics=true&env=http://datatable
          $("#volume").text("Bid Price: " + data.query.results.quote.Volume);
          $("#high").text("Bid Price: " + data.query.results.quote.HighLimit);
          $("#low").text("Bid Price: " + data.query.results.quote.LowLimit);
-        $("#alldata").text(JSON.stringify(data.query.results.quote));
+        //$("#alldata").text(JSON.stringify(data.query.results.quote));
         
         var node = JsonHuman.format(data.query.results.quote);
 		 output = document.getElementById("output");
