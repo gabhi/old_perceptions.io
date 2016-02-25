@@ -25,16 +25,16 @@ var data = encodeURIComponent("select * from yahoo.finance.quotes where symbol i
 $.getJSON(url, 'q=' + data + "&format=json&diagnostics=true&env=http://datatables.org/alltables.env")
     .done(function (data) {
 
-         $("#name").text("Bid Price: " + data.query.results.quote.Symbol);
-         $("#date").text("Bid Price: " + data.query.results.quote.Date);
-         $("#time").text("Bid Price: " + data.query.results.quote.LastTradeTime);
-         $("#result").text("Bid Price: " + data.query.results.quote.LastTradePriceOnly);
-         $("#chg").text("Bid Price: " + data.query.results.quote.PercentChange);
-         $("#bid").text("Bid Price: " + data.query.results.quote.LastTradePriceOnly);
-         $("#ask").text("Bid Price: " + data.query.results.quote.Ask);
-         $("#volume").text("Bid Price: " + data.query.results.quote.Volume);
-         $("#high").text("Bid Price: " + data.query.results.quote.HighLimit);
-         $("#low").text("Bid Price: " + data.query.results.quote.LowLimit);
+         //$("#name").text("Bid Price: " + data.query.results.quote.Symbol);
+         //$("#date").text("Bid Price: " + data.query.results.quote.Date);
+         //$("#time").text("Bid Price: " + data.query.results.quote.LastTradeTime);
+         //$("#result").text("Bid Price: " + data.query.results.quote.LastTradePriceOnly);
+         //$("#chg").text("Bid Price: " + data.query.results.quote.PercentChange);
+         //$("#bid").text("Bid Price: " + data.query.results.quote.LastTradePriceOnly);
+         //$("#ask").text("Bid Price: " + data.query.results.quote.Ask);
+         //$("#volume").text("Bid Price: " + data.query.results.quote.Volume);
+         //$("#high").text("Bid Price: " + data.query.results.quote.HighLimit);
+         //$("#low").text("Bid Price: " + data.query.results.quote.LowLimit);
         //$("#alldata").text(JSON.stringify(data.query.results.quote));
         
         var node = JsonHuman.format(data.query.results.quote);
@@ -90,36 +90,7 @@ function CheckEnter(e)
         <span class="smallText">e.g. &quot;YHOO or YHOO GOOG&quot;</span>
 
         <div id="service" style="padding:10px 0;">
-            <table style="border: 1px solid black;" width="770">
-              <tbody>
-                <tr style="font-size: 14px; font-family: Arial,Helvetica,sans-serif; font-weight: bold;">
-                    <td>Symbol</td>
-                    <td>Date</td>
-                    <td>Time</td>
-                    <td>Trade</td>
-                    <td>% Chg</td>
-                    <td>Bid</td>
-                    <td>Ask</td>
-                    <td>Volume</td>
-                    <td>High</td>
-                    <td>Low</td>
-                </tr>
-                <tr style="font-family: Arial,Helvetica,sans-serif; font-size: 14px; padding: 0px 2px;">
-                    <td id="name">YHOO</td>
-                    <td id="date">3/11/2011</td>
-                    <td id="time">5:00pm</td>
-                    <td id="result">$17.42</td>
-                    <td id="chg"><span id="colorText" class="greenText">+0.36(+2.11%)</span></td>
-                    <td id="bid">17.30</td>
-                    <td id="ask">17.77</td>
-                    <td id="volume">19,455,986</td>
-                    <td id="high">17.54</td>
-                    <td id="low">17.00</td>
-                </tr>
-            </tbody>
-          </table>
-          <span id="alldata"></span>
-          <br />
+           
                     <span id="output"></span>
 
           
