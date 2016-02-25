@@ -1,13 +1,13 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
  <html xmlns="http://www.w3.org/1999/xhtml">
  <head>
-<title>IGotMessage - Finances</title>
+<title>Perceptions - Finances</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta content="Get stock quotes, research investments and read business news that help you manage your financial life." name="description">
 <meta content="financial Information,investing,investor,market news,stock research,business news,economy,finance,personal finance,quote,loan,student loan,morgage loan,car loan" name="keywords">
 <meta content="all" name="robots">
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
  <link rel="stylesheet" href="json.human.css">
  <script src="json.human.js"></script>
@@ -18,7 +18,7 @@ function start(){
     document.getElementById('link1').click();
 }
 function getData() {
-var url = "http://query.yahooapis.com/v1/public/yql";
+var url = "//query.yahooapis.com/v1/public/yql";
 var symbol = $("#symbol").val();
 var data = encodeURIComponent("select * from yahoo.finance.quotes where symbol in ('" + symbol + "')");
 
