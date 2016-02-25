@@ -86,6 +86,12 @@ function CheckEnter(e)
   <tr valign="top">
     <td class="normalText" align="left">
     	<form id="myForm" action="">
+    		
+    		<div class="input-group input-group-lg">
+  <span class="input-group-addon" id="sizing-addon1">@</span>
+  <input type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon1">
+</div>
+
         <input name="q" id="q" onkeypress="return CheckEnter(event);"  type="text" />
         <input name="button" type="button" id="btnQuote" onclick="return SendRequest();" value="Get Quotes" />
         </form>
