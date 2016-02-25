@@ -69,12 +69,13 @@ $.getJSON(url, 'q=' + data + "&format=json&diagnostics=true&env=http://datatable
 		 output = document.getElementById("output");
 		 output.innerHTML = "";
         //output.appendChild(node);
-        
+        var final_str="";
         for (var key in data.query.results.quote) {
   
-     output.appendChild(key + " -> " + data.query.results.quote[key]);
+     final_str +=(key + " -> " + data.query.results.quote[key]);
    
 }
+ output.appendChild(final_str);
 	
 
 }).fail(function (jqxhr, textStatus, error) {
