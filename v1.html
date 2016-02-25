@@ -75,7 +75,7 @@ $.getJSON(url, 'q=' + data + "&format=json&diagnostics=true&env=http://datatable
      final_str +=(key + " -> " + data.query.results.quote[key]);
    
 }
- output.appendChild(final_str);
+ document.getElementById("output").innerHTML = (final_str);
 	
 
 }).fail(function (jqxhr, textStatus, error) {
