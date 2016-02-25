@@ -29,7 +29,7 @@ var url = "//query.yahooapis.com/v1/public/yql";
 debugger;
 var query_param = get("q");
 
-var symbol = $("#symbol").val();
+var symbol = $("#q").val();
 var data = encodeURIComponent("select * from yahoo.finance.quotes where symbol in ('" + symbol + "')");
 
 $.getJSON(url, 'q=' + data + "&format=json&diagnostics=true&env=http://datatables.org/alltables.env")
@@ -74,7 +74,7 @@ function CheckEnter(e)
   <tr valign="top">
     <td class="normalText" align="left">
     	<form id="myForm" action="">
-        <input name="txtQuote" id="symbol" onkeypress="return CheckEnter(event);" value="YHOO" type="text" />
+        <input name="q" id="q" onkeypress="return CheckEnter(event);" value="YHOO" type="text" />
         <input name="button" type="button" id="btnQuote" onclick="return SendRequest();" value="Get Quotes" />
         </form>
         <br />
