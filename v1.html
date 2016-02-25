@@ -9,6 +9,10 @@
 <meta content="all" name="robots">
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+ <link rel="stylesheet" href="json.human.css">
+ <script src="json.human.js"></script>
+    
 <script language="JavaScript">
 function start(){
     getData();
@@ -33,6 +37,14 @@ $.getJSON(url, 'q=' + data + "&format=json&diagnostics=true&env=http://datatable
          $("#high").text("Bid Price: " + data.query.results.quote.HighLimit);
          $("#low").text("Bid Price: " + data.query.results.quote.LowLimit);
         $("#alldata").text(JSON.stringify(data.query.results.quote));
+        
+        var node = JsonHuman.format(data.query.results.quote);
+		 output = document.getElementById("output");
+		 output.innerHTML = "";
+        output.appendChild(node);
+		console.log(node);
+		
+		
          if(data.query.results.quote.PercentChange.indexOf("+") != -1){
 
             document.getElementById("chg").className = "greenText";
@@ -109,6 +121,8 @@ function CheckEnter(e)
           </table>
           <span id="alldata"></span>
           <br />
+                    <span id="output"></span>
+
           
         </div>
     </td>
