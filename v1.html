@@ -87,11 +87,16 @@ function CheckEnter(e)
     <td class="normalText" align="left">
     	<form id="myForm" action="">
     		
-    		<div class="input-group input-group-lg">
-  <input type="text" class="form-control" placeholder="stock symbol" name="q" id="q" onkeypress="return CheckEnter(event);" aria-describedby="sizing-addon1">
-</div>
-
-        <input name="button" type="button" id="btnQuote" onclick="return SendRequest();" value="Get Quotes" />
+    		
+    		<div class="input-group">
+      <input name="q" id="q" onkeypress="return CheckEnter(event);" type="text" class="form-control" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" id="btnQuote" onclick="return SendRequest();" type="button">Get Quotes</button>
+      </span>
+    </div><!-- /input-group -->
+    
+    
+    	
         </form>
         <br />
         <span class="smallText">e.g. &quot;YHOO or YHOO GOOG&quot;</span>
