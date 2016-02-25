@@ -13,13 +13,22 @@
  <script src="json.human.js"></script>
     
 <script language="JavaScript">
+function get(name){
+   if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+      return decodeURIComponent(name[1]);
+}
+
 function start(){
 	debugger;
+	
     getData();
     document.getElementById('link1').click();
 }
 function getData() {
 var url = "//query.yahooapis.com/v1/public/yql";
+debugger;
+var query_param = get("q");
+
 var symbol = $("#symbol").val();
 var data = encodeURIComponent("select * from yahoo.finance.quotes where symbol in ('" + symbol + "')");
 
