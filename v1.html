@@ -19,7 +19,12 @@
  <link rel="stylesheet" href="json.human.css">
  <script src="json.human.js"></script>
     <style>
-    	
+    	@media (min-width: 768px)
+.bs-glyphicons li {
+    width: 20%;
+    font-size: 12px;
+}
+
     	.v4-tease {
   display: block;
   padding: 15px 20px;
@@ -72,6 +77,7 @@ $.getJSON(url, 'q=' + data + "&format=json&diagnostics=true&env=http://datatable
         var final_str='<div class="bs-glyphicons"> <ul class="bs-glyphicons-list"> ';
         for (var key in data.query.results.quote) {
   
+  if(data.query.results.quote[key] !== "null")
   final_str += "<li>" +  '<span class="glyphicon " aria-hidden="true"> ' +data.query.results.quote[key] + ' </span> <span class="glyphicon-class">' + key +'</span> '+ "</li>";
   //   final_str += "<li>" + (key + " -> " + data.query.results.quote[key]) + "</li>";
    
