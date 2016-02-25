@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+<title>Perceptions - Finances</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="Get stock quotes, research investments and read business news that help you manage your financial life." name="description">
+<meta content="financial Information,investing,investor,market news,stock research,business news,economy,finance,personal finance,quote,loan,student loan,morgage loan,car loan" name="keywords">
+<meta content="all" name="robots">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+<link rel="stylesheet" href="http://getbootstrap.com/assets/css/docs.min.css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+ <link rel="stylesheet" href="json.human.css">
+ <script src="json.human.js"></script>
+    <style>
+ .bs-glyphicons li {
+     width: 30% !important;
+    font-size: 12px;
+}
+
+    	.v4-tease {
+  display: block;
+  padding: 15px 20px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  background-color: #0275d8;
+}
+.v4-tease:hover {
+  color: #fff;
+  text-decoration: none;
+  background-color: #0269c2;
+}
+
+    </style>
+<script language="JavaScript">
+function get(name){
+   if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+      return decodeURIComponent(name[1]);
+}
+
+function start(){
+	debugger;
+	var query_param = get("q");
+	if (query_param === undefined || query_param === null) {
+    		query_param = "baba"
+	}
+	document.getElementById("q").value = query_param;
+
+    getData();
+   
+}
+function getData() {
+var url = "//query.yahooapis.com/v1/public/yql";
+debugger;
+var query_param = get("q");
+
+var symbol = $("#q").val();
+var data = encodeURIComponent("select * from yahoo.finance.quotes where symbol in ('" + symbol + "')");
+
+$.getJSON(url, 'q=' + data + "&format=json&diagnostics=true&env=http://datatables.org/alltables.env")
+    .done(function (data) {
+
+        
+        
+        var node = JsonHuman.format(data.query.results.quote);
+		 output = document.getElementById("output");
+		 output.innerHTML = "";
+        //output.appendChild(node);
+        var final_str='<div class="bs-glyphicons"> <ul class="bs-glyphicons-list"> ';
+        for (var key in data.query.results.quote) {
+  
+  if(data.query.results.quote[key] !== null)
+  final_str += "<li>" +  '<span class="glyphicon " aria-hidden="true"> ' +data.query.results.quote[key] + ' </span> <span class="glyphicon-class">' + key +'</span> '+ "</li>";
+  //   final_str += "<li>" + (key + " -> " + data.query.results.quote[key]) + "</li>";
+   
+}
+final_str += "</ul> </div>";
+ document.getElementById("output").innerHTML = (final_str);
+	
+
+}).fail(function (jqxhr, textStatus, error) {
+    var err = textStatus + ", " + error;
+        $("#result").text('Request failed: ' + err);
+});
+}
+function SendRequest()
+{
+    document.getElementById("myForm").submit();
+
+   // getData();
+}   
+
+function CheckEnter(e)
+{
+    if ((e.keyCode && e.keyCode==13) || (e.which && e.which==13)) {
+        return SendRequest();
+    }
+    return true;
+}       
+</script>
+</head>
+
+<body style="margin: 0px;" bgcolor="" onload="start();">
+
+<div align="center" style=" width:900px; margin:50px auto; padding:20px;">
+
+<table width="90%" border="0" cellpadding="0" cellspacing="0" align="center">
+<tbody>
+  <tr valign="top">
+    <td class="normalText" align="left">
+    	<form id="myForm" action="">
+    		
+    		
+    		<div class="input-group input-group-lg">
+      <input name="q" id="q" onkeypress="return CheckEnter(event);" type="text" class="form-control" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" id="btnQuote" onclick="return SendRequest();" type="button">Get Quotes</button>
+      </span>
+    </div><!-- /input-group -->
+    
+    
+    	
+        </form>
+        <br />
+        <span class="smallText"></span>
+
+        <div id="service" style="padding:10px 0;">
+           
+                    <span id="output"></span>
+	
+          
+        </div>
+    </td>
+</tr>
+<tr>
+</tr>
+</tbody>
+
