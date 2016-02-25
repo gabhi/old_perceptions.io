@@ -72,7 +72,7 @@ $.getJSON(url, 'q=' + data + "&format=json&diagnostics=true&env=http://datatable
         var final_str='<ul class="bs-glyphicons-list">';
         for (var key in data.query.results.quote) {
   
-  final_str += "li" +  '<span class="glyphicon glyphicon-asterisk" aria-hidden="true"> ' +data.query.results.quote[key] + ' </span> <span class="glyphicon-class">' + key +'</span> '+ "</li>";
+  final_str += "<li>" +  '<span class="glyphicon glyphicon-asterisk" aria-hidden="true"> ' +data.query.results.quote[key] + ' </span> <span class="glyphicon-class">' + key +'</span> '+ "</li>";
   //   final_str += "<li>" + (key + " -> " + data.query.results.quote[key]) + "</li>";
    
 }
