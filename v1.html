@@ -35,34 +35,13 @@ var data = encodeURIComponent("select * from yahoo.finance.quotes where symbol i
 $.getJSON(url, 'q=' + data + "&format=json&diagnostics=true&env=http://datatables.org/alltables.env")
     .done(function (data) {
 
-         //$("#name").text("Bid Price: " + data.query.results.quote.Symbol);
-         //$("#date").text("Bid Price: " + data.query.results.quote.Date);
-         //$("#time").text("Bid Price: " + data.query.results.quote.LastTradeTime);
-         //$("#result").text("Bid Price: " + data.query.results.quote.LastTradePriceOnly);
-         //$("#chg").text("Bid Price: " + data.query.results.quote.PercentChange);
-         //$("#bid").text("Bid Price: " + data.query.results.quote.LastTradePriceOnly);
-         //$("#ask").text("Bid Price: " + data.query.results.quote.Ask);
-         //$("#volume").text("Bid Price: " + data.query.results.quote.Volume);
-         //$("#high").text("Bid Price: " + data.query.results.quote.HighLimit);
-         //$("#low").text("Bid Price: " + data.query.results.quote.LowLimit);
-        //$("#alldata").text(JSON.stringify(data.query.results.quote));
+        
         
         var node = JsonHuman.format(data.query.results.quote);
 		 output = document.getElementById("output");
 		 output.innerHTML = "";
         output.appendChild(node);
-		console.log(node);
-		
-		
-         if(data.query.results.quote.PercentChange.indexOf("+") != -1){
-
-            document.getElementById("chg").className = "greenText";
-        }
-         else{
-            //alert(data.query.results.quote.PercentChange);
-
-            document.getElementById("chg").className = "redText";
-        }
+	
 
 }).fail(function (jqxhr, textStatus, error) {
     var err = textStatus + ", " + error;
