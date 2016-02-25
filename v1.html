@@ -50,8 +50,9 @@ $.getJSON(url, 'q=' + data + "&format=json&diagnostics=true&env=http://datatable
 }
 function SendRequest()
 {
+    document.getElementById("myForm").submit();
 
-    getData();
+   // getData();
 }   
 
 function CheckEnter(e)
@@ -72,8 +73,10 @@ function CheckEnter(e)
 <tbody>
   <tr valign="top">
     <td class="normalText" align="left">
+    	<form id="myForm" action="">
         <input name="txtQuote" id="symbol" onkeypress="return CheckEnter(event);" value="YHOO" type="text" />
         <input name="button" type="button" id="btnQuote" onclick="return SendRequest();" value="Get Quotes" />
+        </form>
         <br />
         <span class="smallText">e.g. &quot;YHOO or YHOO GOOG&quot;</span>
 
