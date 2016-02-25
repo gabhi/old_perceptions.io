@@ -19,9 +19,8 @@
  <link rel="stylesheet" href="json.human.css">
  <script src="json.human.js"></script>
     <style>
-    	@media (min-width: 768px)
-.bs-glyphicons li {
-    width: 50%;
+ .bs-glyphicons li {
+  //  width: 50%;
     font-size: 12px;
 }
 
@@ -50,7 +49,7 @@ function start(){
 	debugger;
 	var query_param = get("q");
 	if (query_param === undefined || query_param === null) {
-    		query_param = "amzn"
+    		query_param = "CRK"
 	}
 	document.getElementById("q").value = query_param;
 
