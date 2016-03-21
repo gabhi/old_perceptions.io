@@ -33,7 +33,7 @@ angular.module('website', ['ngRoute']).
 $scope.data = "tttt"
 
 
-$http.get('http://perceptions.io/v5/a.csv').success(function(alldata){
+$http.get('https://raw.githubusercontent.com/gabhi/perceptions.io/gh-pages/v5/a.csv?token=ABU2_UBFJh3vTSG0QL6E_lT6lKNKEacTks5W-Oj7wA%3D%3D').success(function(alldata){
     $scope.data = alldata;
 });
      
