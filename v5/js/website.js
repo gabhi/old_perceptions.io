@@ -27,7 +27,21 @@ angular.module('website', ['ngRoute']).
             StateService.setMessage(m);
         };
     })
-    .controller('HomeCtrl', function ($scope, StateService) {
+    .controller('HomeCtrl', function ($scope, $http, StateService) {
+
+        var reader = new FileReader();
+$scope.data = "tttt"
+
+
+$http.get('http://perceptions.io/v5/a.csv').success(function(alldata){
+    $scope.data = alldata;
+});
+     
+
+    
+
+
+
         $scope.title = 'Home Page';
         $scope.body = 'This is the about home body';
 
